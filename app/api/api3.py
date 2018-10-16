@@ -19,9 +19,9 @@ def treatment():
       df = pd.read_html(str(table))
       #for i in df:
       #     print(i[0],i[1])
-      df[0].to_csv("calls1.csv", index=False, quoting=csv.QUOTE_NONE,escapechar=' ') #storing the extracted data in csv file
+      df[0].to_csv("web_scrapped.csv", index=False, quoting=csv.QUOTE_NONE,escapechar=' ') #storing the extracted data in csv file
       #------storing data in sqlite3 database-------#
-      with open('calls1.csv','r') as person_table:
+      with open('web_scrapped.csv','r') as person_table:
            dr = csv.DictReader(person_table, delimiter=',')
            to_db = [[i["1"],i["0"]] for i in dr]
       
