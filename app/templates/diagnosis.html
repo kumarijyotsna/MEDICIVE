@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>DIAGNOSIS</title>
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel = "stylesheet" type = "text/css" href = "/static/style.css" />
+<style>
+.background {
+      background: linear-gradient(rgba(0, 210, 255, 0.77), rgba(30, 23, 23, 0.5) ), url(/static/mobile.jpg);
+	height: 100%;
+        background-size:cover;
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.table-striped{
+       background: grey;
+}
+</style>
+</head>
+<style>
+
+}
+</style>
+<body class="background">
+<!----nav bar----->
+<div class="container">
+<ul class="nav nav-tabs" role="tablist">
+    <li><a href="/">Home</a></li>
+    <li><a href="/search">Get Diagonised</a></li>
+    <li><a href="/location">Search for hospitals</a></li>
+  </ul>
+</div>
+<div class="container">
+   <table class="table table-striped">
+<!---table for diagnosis----->
+     <tr style="background: black; color: white;">
+        <th>Name</th>
+        <th>Accuracy</th>
+        <th>Symptoms obeserved</th>
+        <th>Get Medication</th>
+    </tr>
+    {% for d in dia %}
+    <tr>
+        <td>{{ d["Issue"]["Name"] }} </td> 
+        <td> {{ d["Issue"]["Accuracy"] }} </td>  
+        <td> {{ d["Issue"]["IcdName"] }} </td>
+        <td><a href="/treatment?text={{ d['Issue']['Name'] }}" style="text-decoration: none; color: white;">Treatment</a></td>  
+    </tr>
+   {% endfor %}
+  </table>
+</div>
+</body>
+</html>

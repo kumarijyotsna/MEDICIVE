@@ -1,0 +1,133 @@
+<html>
+<head><title>SYMPTOM</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel = "stylesheet" type = "text/css" href = "/static/style.css" >
+<style>
+.background {
+      background: linear-gradient(rgba(0, 210, 255, 0.77), rgba(30, 23, 23, 0.5) ), url(/static/mobile.jpg);
+	height: 100%;
+        background-size:cover;
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.table-striped{
+       background: grey;
+}
+</style>
+</head>
+<body class="background">
+<!----nav bar----->
+<div class="container">
+  <ul class="nav nav-tabs" role="tablist">
+    <li><a href="/">Home</a></li>
+    <li><a href="/search">Get Diagonised</a></li>
+    <li><a href="/location">Search for hospitals</a></li>
+  </ul>
+</div>
+<!------code for search bar ---->
+<!----code for symptom display ----->
+<div class="container">
+<div class="check ">
+  <div>
+     <input type="text" id="search" placeholder="search for your symptom...." class="form-control"></input>
+  </div>
+
+  <table class="table table-striped">
+    <th colspan="2"><center>symptoms name</center></th>
+  {% for val in sym %}
+    <tr>
+       <td><input type="checkbox" name="check[]" value="{{ val['ID'] }}"></td>
+       <td>{{ val['Name'] }}</td></tr>
+  {% endfor %}
+  </table>
+<button id="getFeatures" class="btn btn-dark">GET FEATURES</button><br/><br/>
+</div>
+<!-----get the list of user's selected option----->
+<div class="container">
+<form action="/diagnosis" method="post" name="frm">
+<h3><span class="badge badge-primary">YOU SELECTED:</span></h3>
+<textarea id="feature" value="" name="symp" rows="4" style="width:1100px;"></textarea>
+<h3>GENDER</h3><input type="text" name="gender" ></input>
+<h3>YEAR OF BIRTH</h3><input type="text" name="yob"></input>
+<br/>
+<br/>
+<button  class="btn btn-dark" value="submit">GET DIAGNOSIS</button>
+</form>
+<div id="selectedInput"></div>
+</div>
+</div>
+</body>
+<script>
+function removeHighlighting(highlightedElements){
+    highlightedElements.each(function(){
+        var element = $(this);
+        element.replaceWith(element.html());
+    })
+}
+
+function addHighlighting(element, textToHighlight){
+    var text = element.text();
+    var highlightedText = '<em>' + textToHighlight + '</em>';
+    var newText = text.replace(textToHighlight, highlightedText);
+    
+    element.html(newText);
+}
+
+$("#search").on("keyup", function() {
+    var value = $(this).val();
+    
+    removeHighlighting($("table tr em"));
+
+    $("table tr").each(function(index) {
+        if (index !== 0) {
+            $row = $(this);
+            
+            var $tdElement = $row.find("td:first");
+            var id = $tdElement.text();
+            var matchedIndex = id.indexOf(value);
+            
+            if (matchedIndex != 0) {
+                $row.hide();
+            }
+            else {
+                addHighlighting($tdElement, value);
+                $row.show();
+            }
+        }
+    });
+});
+ 
+</script>
+
+<script type="text/javascript", charset="utf-8">
+$(function change() {
+   //var url="/features";
+  
+   var data=[];
+  $('#getFeatures').click(function() {
+    var feature = [];
+    data=[];
+    //var data={};
+    //var datastring=[];
+    $('.check input[type="checkbox"]:checked').each(function() {
+      feature.push($(this).val());
+      data.push($(this).val());
+    });
+    $('#feature').val(data);
+    $('#selectedFeatures').html(feature.join('<br/>'));
+    //$('#selected').html(data.join('<br/>'));
+  
+    //$('#selectedInput').html(" create table 'data'("+ features[0] + " " +features[1]+ ")")
+     $('#selectedInput').html(feature.length);//size of features array
+       
+});
+   //$.post(url,data);
+    //$.post(url,data);
+});</script>
+</html>
