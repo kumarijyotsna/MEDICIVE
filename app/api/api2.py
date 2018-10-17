@@ -3,7 +3,6 @@ from flask import Flask
 from flask import render_template,make_response
 from flask import Flask, request, redirect, url_for
 import client
-import random
 import config  #config file for Apimedic API
 import requests
 #-----connection with apimedic api------#

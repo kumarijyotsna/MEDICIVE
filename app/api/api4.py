@@ -1,6 +1,5 @@
 from app.api import medcive
 from flask import render_template,make_response
-import os
 from flask import Flask, request, redirect, url_for
 
 import googlemaps 

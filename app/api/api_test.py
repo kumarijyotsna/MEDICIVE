@@ -3,7 +3,6 @@ import sys
 sys.path.append('/home/simmi/MEDICIVE') #specify the path of your project
 import app
 from flask import Flask
-import urllib2
 import api2
 import api1
 import api3
