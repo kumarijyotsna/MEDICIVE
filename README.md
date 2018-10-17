@@ -26,10 +26,10 @@ Web app for medical dignosis and treatment suggestion based on symptoms entered 
 | | | |────diagnosis_bot.html  
 | | | |────location.html  
 | | | |────map.html 
-| | | |────404.html
+| | | |────404.html  
 | | ────__init__.py  
 | |────static/    
-| | |────mobile.jpg  
+| | |────mobile.jpg        
 | |────medicive.db  
 | |────web_scrapped.csv  
 
