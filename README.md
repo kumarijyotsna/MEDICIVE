@@ -24,9 +24,9 @@ Web app for medical dignosis and treatment suggestion based on symptoms entered 
 | | | |────search.html  
 | | | |────select.html  
 | | | |────diagnosis_bot.html  
-| | | |────location.html  
-| | | |────map.html 
-| | | |────404.html  
+| | | |────location.html      
+| | | |────map.html   
+| | | |────404.html     
 | | ────__init__.py  
 | |────static/    
 | | |────mobile.jpg        
