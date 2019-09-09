@@ -34,7 +34,7 @@ Web app for medical dignosis and treatment suggestion based on symptoms entered 
 | |────web_scrapped.csv  
 
 - 'app' folder has file for flask database configuration and controllers for all API (5 APIs given in question).
-- 'api' folder contains all the 5 APIs(api1.py, api2.py, api3.py, api4.py, api5.py) and a unit test file for testing APIs(api_test.py).
+- 'api' folder contains 5 APIs(api1.py, api2.py, api3.py, api4.py, api5.py) and a unit test file for testing APIs(api_test.py).
 - 'templates' folder contains html file for view.
 - 'static' folder contains static file(image).
 - 'config.py' contains config file for Apimedic API. User need to replace the API key with the key they get from [here].(https://apimedic.com/)
@@ -67,8 +67,6 @@ This project has been built using
 5) Dependency management: pip
 6) API Used: Apimedic, Infermedica
 
-
-#### 'api' folder has all the 5 APIs given in question
 
 
 
