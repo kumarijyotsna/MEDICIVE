@@ -21,6 +21,7 @@ class PriaidDiagnosisClientDemo:
 
 #----------API 1----------#
 #------home page where we extract symptom from apidemic api--------#
+#----------------------------------------------------------------------------#
 @medcive.route("/",methods=['GET','POST'])
 def symptom():
       pdcd=PriaidDiagnosisClientDemo()
