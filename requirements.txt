@@ -1,4 +1,4 @@
-flask==1.0
+flask==2.3.2
 pandas==0.20.3
 werkzeug==0.15.3
 bs4==4.6.3
